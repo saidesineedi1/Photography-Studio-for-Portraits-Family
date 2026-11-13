@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | Pixora Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="./assets/logo photo.jpg">
+    <link rel="apple-touch-icon" href="./assets/logo photo.jpg">
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="service-details.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+                    <img src="./assets/logo photo.jpg" alt="Pixora Studio Logo">
+                    <div class="logo-text">
+                        <h2>Pixora Studio</h2>
+                        <p>Photography Studio</p>
+                    </div>
+                </a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="index.html" class="dropdown-btn">Home <i data-lucide="chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html">Home 1</a></li>
+                            <li><a href="home2.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="nav-active">Services</a></li>
+                    <li><a href="Package.html">Packages</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="client-dashboard.html">Dashboard</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="themeBtn" class="btn" aria-label="Toggle Theme"><i data-lucide="moon"></i></button>
+                <button id="rtlBtn" class="btn" aria-label="Toggle RTL">RTL</button>
+                <a href="login.html" class="btn">Login</a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-sidebar-header">
+            <a href="index.html" class="mobile-sidebar-brand" style="text-decoration:none;">
+                <img src="./assets/logo photo.jpg" alt="Pixora Studio Logo">
+                <div class="mobile-sidebar-brand-text">
+                    <h3>Pixora Studio</h3>
+                    <span>Photography Studio</span>
+                </div>
+            </a>
+            <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close navigation">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="mobile-nav-link"><i data-lucide="home"></i> Home 1</a></li>
+            <li><a href="home2.html" class="mobile-nav-link"><i data-lucide="layout-grid"></i> Home 2</a></li>
+            <li><a href="about.html" class="mobile-nav-link"><i data-lucide="user"></i> About</a></li>
+            <li><a href="services.html" class="mobile-nav-link active"><i data-lucide="camera"></i> Services</a></li>
+            <li><a href="Package.html" class="mobile-nav-link"><i data-lucide="package"></i> Packages</a></li>
+            <li><a href="contact.html" class="mobile-nav-link"><i data-lucide="mail"></i> Contact</a></li>
+            <li><a href="client-dashboard.html" class="mobile-nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+        </ul>
+
+        <div class="mobile-sidebar-footer">
+            <div class="mobile-sidebar-actions">
+                <button id="mobileThemeBtn" class="mobile-action-btn" aria-label="Toggle Theme">
+                    <i data-lucide="moon"></i>
+                    <span id="mobileThemeText">Theme</span>
+                </button>
+                <button id="mobileRtlBtn" class="mobile-action-btn" aria-label="Toggle RTL">
+                    <i data-lucide="languages"></i>
+                    <span id="mobileRtlText">RTL</span>
+                </button>
+            </div>
+            <a href="login.html" class="mobile-login-btn">
+                <i data-lucide="log-in"></i> Login
+            </a>
+        </div>
+    </div>
+
+    <section class="sd-hero" id="service-view">
+        <div class="container">
+            <div class="sd-hero-grid">
+                <div class="sd-hero-left">
+
+                    <div class="sd-hero-pill" id="sdHeroPill">
+                        <i data-lucide="sparkles"></i> Fine Art Studio & Editorial
+                    </div>
+
+                    <h1 id="sdHeroTitle">Portrait Photography</h1>
+
+                    <p id="sdHeroSubtitle">
+                        Sculpted studio lighting, editorial styling, and authentic human expression. From intimate individual portraits to creative personal branding, each session reveals your true character with museum-grade craftsmanship.
+                    </p>
+
+                    <div class="sd-hero-badges">
+                        <div class="sd-meta-chip">
+                            <i data-lucide="clock"></i>
+                            <span id="sdDurationChip">2Ã¢â‚¬â€œ4 Hours</span>
+                        </div>
+                        <div class="sd-meta-chip">
+                            <i data-lucide="shirt"></i>
+                            <span id="sdOutfitsChip">Up to 4 Outfits</span>
+                        </div>
+                        <div class="sd-meta-chip">
+                            <i data-lucide="send"></i>
+                            <span id="sdDeliveryChip">5Ã¢â‚¬â€œ7 Days Delivery</span>
+                        </div>
+                    </div>
+
+                    <div class="sd-hero-actions">
+                        <a href="Package.html" class="btn">Explore Collections</a>
+                        <a href="contact.html" class="btn-outline">Book Consultation</a>
+                    </div>
+                </div>
+
+                <div class="sd-hero-right">
+                    <div class="sd-hero-frame">
+                        <img id="sdHeroImg" src="./assets/sd-portrait-hero.jpg" alt="Service Photography Preview">
+                        <div class="sd-float-rating">
+                            <i data-lucide="trophy"></i>
+                            <div>
+                                <strong id="sdRatingStatVal">1200+</strong>
+                                <span id="sdRatingStatLbl">Portraits Crafted</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sd-overview-section">
+        <div class="container">
+            <div class="sd-overview-grid">
+                <div class="sd-overview-content">
+                    <div class="section-title" style="text-align: left; margin-bottom: 20px;">
+                        <span>THE STUDIO EXPERIENCE</span>
+                        <h2 id="sdOverviewTitle">The Art Behind Our <span class="highlight">Portraits</span></h2>
+                    </div>
+
+                    <p>
+                        We approach each session as an intimate, personalized collaboration. With gentle guidance, flattering lighting setups, and tailored creative backdrops, we ensure you feel relaxed and completely authentic in front of the lens.
+                    </p>
+
+                    <div class="sd-feature-checks" id="sdChecksContainer">
+                        <div class="sd-check-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Private Studio & Controlled Lighting</span>
+                        </div>
+                        <div class="sd-check-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Professional Posing Guidance</span>
+                        </div>
+                        <div class="sd-check-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Wardrobe Styling & Moodboards</span>
+                        </div>
+                        <div class="sd-check-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>High-Resolution Master Retouching</span>
+                        </div>
+                        <div class="sd-check-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Private Online Proofing Suite</span>
+                        </div>
+                        <div class="sd-check-item">
+                            <i data-lucide="check-circle-2"></i>
+                            <span>Print Rights & Web Licensing</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px;">
+                        <a href="contact.html" class="btn">Reserve This Session</a>
+                    </div>
+                </div>
+
+                <div class="sd-overview-media">
+                    <div class="sd-stacked-card">
+                        <img id="sdOverviewImg" src="./assets/sd-portrait-overview.jpg" alt="Artisan Photography Details" loading="lazy">
+                    </div>
+                    <div class="sd-experience-card">
+                        <h4>100%</h4>
+                        <p>Artisan satisfaction with customized skin-tone calibration and moodboard planning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sd-deliverables-section">
+        <div class="container">
+            <div class="section-title">
+                <span>WHAT IS INCLUDED</span>
+                <h2>Every Session <span class="highlight">Includes</span></h2>
+                <p>Thoughtfully structured deliverables ensuring an exquisite luxury photography experience.</p>
+            </div>
+
+            <div class="sd-deliverables-grid">
+                <div class="sd-deliverable-card">
+                    <div class="sd-card-icon"><i data-lucide="palette"></i></div>
+                    <h3>Wardrobe Consultation</h3>
+                    <p>Personal styling guidance, lookbook direction, color harmony charts, and accessory curation.</p>
+                </div>
+
+                <div class="sd-deliverable-card">
+                    <div class="sd-card-icon"><i data-lucide="camera"></i></div>
+                    <h3>Private Studio Access</h3>
+                    <p>Exclusive climate-controlled studio access with specialized cinema lighting and custom backdrops.</p>
+                </div>
+
+                <div class="sd-deliverable-card">
+                    <div class="sd-card-icon"><i data-lucide="wand-2"></i></div>
+                    <h3>Master Retouching</h3>
+                    <p>Meticulous editorial skin retouching, color grading, and blemish correction preserving authentic textures.</p>
+                </div>
+
+                <div class="sd-deliverable-card">
+                    <div class="sd-card-icon"><i data-lucide="globe"></i></div>
+                    <h3>Private Online Suite</h3>
+                    <p>Secure password-protected cloud gallery for viewing, high-resolution downloading, and family sharing.</p>
+                </div>
+
+                <div class="sd-deliverable-card">
+                    <div class="sd-card-icon"><i data-lucide="book-open"></i></div>
+                    <h3>Archival Print Heirlooms</h3>
+                    <p>Museum-grade fine-art cotton prints and handcrafted linen album options built to last lifetimes.</p>
+                </div>
+
+                <div class="sd-deliverable-card">
+                    <div class="sd-card-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Full Commercial Rights</h3>
+                    <p>Personal and commercial digital rights release with lifetime cloud backup for all master photographs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sd-packages-section">
+        <div class="container">
+            <div class="section-title">
+                <span>INVESTMENT OPTIONS</span>
+                <h2>Curated <span class="highlight">Collections</span></h2>
+                <p>Explore our transparent packages or visit the dedicated Packages page for complete details.</p>
+            </div>
+
+            <div class="sd-pkg-row">
+                <div class="sd-pkg-card">
+                    <h3>Essential Session</h3>
+                    <div class="sd-pkg-price">Ã¢â€šÂ¹9,999</div>
+                    <p>Ideal for personal branding, profile refreshes, and intimate portraiture.</p>
+                    <ul class="sd-pkg-list">
+                        <li><i data-lucide="check"></i> 2 Hours Studio Session</li>
+                        <li><i data-lucide="check"></i> 50 High-Res Master Edits</li>
+                        <li><i data-lucide="check"></i> 2 Wardrobe Changes</li>
+                        <li><i data-lucide="check"></i> 6 Months Private Gallery</li>
+                    </ul>
+                    <a href="Package.html" class="btn-outline" style="text-align:center;">View Collection</a>
+                </div>
+
+                <div class="sd-pkg-card featured">
+                    <div class="sd-pkg-badge">Most Requested</div>
+                    <h3>Signature Collection</h3>
+                    <div class="sd-pkg-price">Ã¢â€šÂ¹29,999</div>
+                    <p>Our most celebrated full-experience package for families and creative portraits.</p>
+                    <ul class="sd-pkg-list">
+                        <li><i data-lucide="check"></i> 6 Hours Studio & Outdoor</li>
+                        <li><i data-lucide="check"></i> 250 High-Res Master Edits</li>
+                        <li><i data-lucide="check"></i> Up to 4 Wardrobe Changes</li>
+                        <li><i data-lucide="check"></i> Handcrafted Fine-Art Album</li>
+                        <li><i data-lucide="check"></i> 4K Video Highlights</li>
+                    </ul>
+                    <a href="Package.html" class="btn" style="text-align:center;">View Collection</a>
+                </div>
+
+                <div class="sd-pkg-card">
+                    <h3>Heirloom Luxury</h3>
+                    <div class="sd-pkg-price">Ã¢â€šÂ¹59,999</div>
+                    <p>The definitive luxury experience with full-day coverage and museum-grade keepsakes.</p>
+                    <ul class="sd-pkg-list">
+                        <li><i data-lucide="check"></i> Full Day Exclusive Studio</li>
+                        <li><i data-lucide="check"></i> Unlimited Master Edits</li>
+                        <li><i data-lucide="check"></i> Unlimited Outfits + Stylist</li>
+                        <li><i data-lucide="check"></i> Handcrafted Leather Album + 2 Parent Books</li>
+                        <li><i data-lucide="check"></i> 24x36 Fine-Art Canvas</li>
+                    </ul>
+                    <a href="Package.html" class="btn-outline" style="text-align:center;">View Collection</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sd-cta-section">
+        <div class="container">
+            <div class="sd-cta-card">
+                <h2>Begin Your Photography <span class="highlight">Journey</span></h2>
+                <p>
+                    Spaces are curated each month to maintain exceptional craftsmanship and attention to detail. Reserve your preferred date with our studio today.
+                </p>
+                <div class="sd-cta-btns">
+                    <a href="contact.html" class="btn">Book Your Session</a>
+                    <a href="Package.html" class="btn-outline">Browse All Packages</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-box footer-brand-box">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./assets/logo photo.jpg" alt="Pixora Studio Logo">
+                        <div class="logo-text">
+                            <h2>Pixora Studio</h2>
+                            <p>Photography Studio</p>
+                        </div>
+                    </a>
+                </div>
+                <p class="footer-bio">
+                    Elevating fine-art photography with museum-grade craftsmanship,and timeless generational legacy
+                    sessions.
+                </p>
+                <div class="footer-social-circles">
+                    <a href="#" class="footer-social-circle" aria-label="Instagram">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" class="footer-social-circle" aria-label="Facebook">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" class="footer-social-circle" aria-label="YouTube">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="#" class="footer-social-circle" aria-label="Twitter">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h4 class="footer-col-title">COMPANY</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Home 1</a></li>
+                    <li><a href="home2.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Home 2</a></li>
+                    <li><a href="about.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> About Us</a></li>
+                    <li><a href="about.html#story"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Studio Story</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h4 class="footer-col-title">SERVICES</h4>
+                <ul class="footer-links">
+                    <li><a href="service-details.html?service=portrait"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Portrait Photography</a></li>
+                    <li><a href="service-details.html?service=family"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Family & Newborn</a></li>
+                    <li><a href="service-details.html?service=maternity"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Maternity & Motherhood</a></li>
+                    <li><a href="service-details.html?service=wedding"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Wedding & Pre-Wedding</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h4 class="footer-col-title">ADDITIONAL LINKS</h4>
+                <ul class="footer-links">
+                    <li><a href="Package.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Packages & Pricing</a></li>
+                    <li><a href="contact.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Contact Us</a></li>
+                    <li><a href="404.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> 404 Error Page</a></li>
+                    <li><a href="coming-soon.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Coming Soon</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box footer-contact-col">
+                <h4 class="footer-col-title">CONTACT & SUPPORT</h4>
+                <div class="footer-contact-items">
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Timing:</span>
+                            <span class="ci-val">Daily: 09:00 AM Ã¢â‚¬â€œ 08:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Location:</span>
+                            <span class="ci-val">Jubilee Hills, Hyderabad</span>
+                        </div>
+                    </div>
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Mail:</span>
+                            <a href="mailto:info@pixorastudio.com" class="ci-val">info@pixorastudio.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Support:</span>
+                            <a href="tel:+919999999999" class="ci-val">+91 99999 99999</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container copyright-container">
+                <p>Ã‚Â© 2026 Pixora Studio. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="legal-sep">Ã¢â‚¬Â¢</span>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="index.js"></script>
+    <script src="service-details.js"></script>
+</body>
+
+</html>
+

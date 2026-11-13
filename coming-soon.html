@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Pixora Studio</title>
+    <link rel="icon" type="image/jpeg" href="./assets/logo photo.jpg">
+    <link rel="apple-touch-icon" href="./assets/logo photo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="coming-soon.css">
+</head>
+
+<body>
+
+    <button id="themeBtn" class="theme-toggle-corner" aria-label="Toggle Theme" onclick="toggleTheme()">
+        <i data-lucide="moon"></i>
+    </button>
+
+    <main class="cs-page-wrapper">
+        <div class="cs-card">
+
+            <div class="cs-badge-pill">
+                <i data-lucide="sparkles"></i>
+                <span>UNVEILING SOON Ã¢â‚¬Â¢ PRIVATE STUDIO EXPERIENCES</span>
+            </div>
+
+            <h1 class="cs-title">The Future of Fine-Art Portraiture Is Arriving</h1>
+
+            <p class="cs-description">
+                Our master photographers and visual artists are finalizing our newest state-of-the-art photography atelier and bespoke studio sets. Prepare your story for an extraordinary fine-art legacy experience.
+            </p>
+
+            <div class="cs-countdown-row" aria-label="Countdown to launch">
+                <div class="cs-timer-box">
+                    <span class="cs-timer-num" id="csDays">24</span>
+                    <span class="cs-timer-label">DAYS</span>
+                </div>
+                <span class="cs-timer-sep">:</span>
+                <div class="cs-timer-box">
+                    <span class="cs-timer-num" id="csHours">17</span>
+                    <span class="cs-timer-label">HOURS</span>
+                </div>
+                <span class="cs-timer-sep">:</span>
+                <div class="cs-timer-box">
+                    <span class="cs-timer-num" id="csMinutes">59</span>
+                    <span class="cs-timer-label">MINUTES</span>
+                </div>
+                <span class="cs-timer-sep">:</span>
+                <div class="cs-timer-box">
+                    <span class="cs-timer-num" id="csSeconds">47</span>
+                    <span class="cs-timer-label">SECONDS</span>
+                </div>
+            </div>
+
+            <form class="cs-waitlist-form" id="csWaitlistForm" onsubmit="handleWaitlistSubmit(event)">
+                <div class="cs-input-pill">
+                    <i data-lucide="mail" class="cs-input-icon"></i>
+                    <input type="email" id="csEmailInput" class="cs-input-field" placeholder="Enter your email for early VIP access..." required>
+                    <button type="submit" class="btn-cs-join">
+                        <span>Join Waitlist</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+                <div class="cs-success-msg" id="csSuccessMsg">
+                    <i data-lucide="check-circle"></i>
+                    <span>Thank you! You have been added to our private launch list.</span>
+                </div>
+            </form>
+
+            <div class="cs-benefit-text">
+                <i data-lucide="shield-check"></i>
+                <span>Receive a 20% launch voucher Ã¢â‚¬Â¢ Zero spam</span>
+            </div>
+
+            <a href="index.html" class="btn-cs-back">
+                <i data-lucide="home"></i>
+                <span>Back to Home</span>
+            </a>
+
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+
+            const isLight = document.body.classList.contains('light-mode');
+            if (typeof updateThemeUI === 'function') {
+                updateThemeUI(isLight);
+            }
+
+            let launchDate = localStorage.getItem('pixora_launch_date');
+            if (!launchDate) {
+                const target = new Date();
+                target.setDate(target.getDate() + 24);
+                target.setHours(target.getHours() + 17);
+                target.setMinutes(target.getMinutes() + 59);
+                target.setSeconds(target.getSeconds() + 47);
+                launchDate = target.getTime();
+                try {
+                    localStorage.setItem('pixora_launch_date', launchDate);
+                } catch(e) {}
+            } else {
+                launchDate = parseInt(launchDate, 10);
+            }
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const diff = launchDate - now;
+
+                if (diff <= 0) {
+                    document.getElementById('csDays').textContent = '00';
+                    document.getElementById('csHours').textContent = '00';
+                    document.getElementById('csMinutes').textContent = '00';
+                    document.getElementById('csSeconds').textContent = '00';
+                    return;
+                }
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('csDays').textContent = String(days).padStart(2, '0');
+                document.getElementById('csHours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('csMinutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('csSeconds').textContent = String(seconds).padStart(2, '0');
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+
+        function handleWaitlistSubmit(e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('csEmailInput');
+            const successMsg = document.getElementById('csSuccessMsg');
+
+            if (emailInput && emailInput.value.trim() !== '') {
+                emailInput.disabled = true;
+                const submitBtn = e.target.querySelector('button[type="submit"]');
+                if (submitBtn) submitBtn.style.display = 'none';
+
+                if (successMsg) {
+                    successMsg.style.display = 'inline-flex';
+                    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                        window.lucide.createIcons();
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
+

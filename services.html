@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Services | Pixora Studio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="./assets/logo photo.jpg">
+    <link rel="apple-touch-icon" href="./assets/logo photo.jpg">
+    <link rel="stylesheet" href="services.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+                    <img src="./assets/logo photo.jpg" alt="Pixora Studio Logo">
+                    <div class="logo-text">
+                        <h2>Pixora Studio</h2>
+                        <p>Photography Studio</p>
+                    </div>
+                </a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="index.html" class="dropdown-btn">Home <i data-lucide="chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html">Home 1</a></li>
+                            <li><a href="home2.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="nav-active">Services</a></li>
+                    <li><a href="Package.html">Packages</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="client-dashboard.html">Dashboard</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="themeBtn" class="btn" aria-label="Toggle Theme"><i data-lucide="moon"></i></button>
+                <button id="rtlBtn" class="btn" aria-label="Toggle RTL">RTL</button>
+                <a href="login.html" class="btn">Login</a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-sidebar-header">
+            <a href="index.html" class="mobile-sidebar-brand" style="text-decoration:none;">
+                <img src="./assets/logo photo.jpg" alt="Pixora Studio Logo">
+                <div class="mobile-sidebar-brand-text">
+                    <h3>Pixora Studio</h3>
+                    <span>Photography Studio</span>
+                </div>
+            </a>
+            <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close navigation">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+
+        <nav class="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-link"><i data-lucide="home"></i> Home 1</a></li>
+                <li><a href="home2.html" class="mobile-nav-link"><i data-lucide="layout"></i> Home 2</a></li>
+                <li><a href="about.html" class="mobile-nav-link"><i data-lucide="users"></i> About Us</a></li>
+                <li><a href="services.html" class="mobile-nav-link nav-active"><i data-lucide="camera"></i> Services</a></li>
+                <li><a href="Package.html" class="mobile-nav-link"><i data-lucide="package"></i> Packages</a></li>
+                <li><a href="contact.html" class="mobile-nav-link"><i data-lucide="mail"></i> Contact</a></li>
+                <li><a href="client-dashboard.html" class="mobile-nav-link"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+            </ul>
+        </nav>
+
+        <div class="mobile-nav-footer">
+            <div class="mobile-nav-actions">
+                <button id="mobileThemeBtn" class="mobile-action-btn" type="button" aria-label="Toggle Theme">
+                    <i data-lucide="moon"></i> <span id="mobileThemeText">Dark Mode</span>
+                </button>
+                <button id="mobileRtlBtn" class="mobile-action-btn" type="button" aria-label="Toggle Direction">
+                    <i data-lucide="languages"></i> <span id="mobileRtlText">RTL</span>
+                </button>
+            </div>
+            <a href="login.html" class="mobile-login-btn">
+                <i data-lucide="user"></i> <span>Login / Sign Up</span>
+            </a>
+        </div>
+    </div>
+
+
+    <section class="srv-hero" id="services-hero">
+        <div class="hero-grid-lines"></div>
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="srv-hero-overlay"></div>
+        <div class="srv-hero-particles">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+
+        <div class="container srv-hero-split">
+            <div class="srv-hero-left">
+                <span class="sub-title"><i data-lucide="sparkles"></i> FINE-ART PHOTOGRAPHY SERVICES</span>
+                <h1>Turning Every Moment Into Timeless <span class="highlight">Fine Art</span></h1>
+                <p>
+                    Specializing in intimate fine-art portraits, emotive family legacies, and ethereal maternity milestones. We craft museum-grade visual heirlooms tailored to your unique story.
+                </p>
+
+                <div class="hero-service-pills">
+                    <span class="hero-pill"><i data-lucide="user"></i> Fine-Art Portrait</span>
+                    <span class="hero-pill"><i data-lucide="users"></i> Family Legacy</span>
+                    <span class="hero-pill"><i data-lucide="heart"></i> Maternity</span>
+                </div>
+
+                <div class="srv-hero-btns">
+                    <a href="#packages" class="btn">View Packages <i data-lucide="arrow-right"></i></a>
+                    <a href="#featured-services" class="btn-outline">Explore Services</a>
+                </div>
+
+                <div class="hero-trust-row">
+                    <div class="trust-pill"><i data-lucide="star"></i> 4.9 / 5 Rating (1,200+ Reviews)</div>
+                    <div class="trust-pill"><i data-lucide="shield-check"></i> 100% Satisfaction Guarantee</div>
+                </div>
+            </div>
+
+            <div class="srv-hero-right">
+                <div class="collage-badge badge-clients">
+                    <strong>1200+</strong>
+                    <span>Heirloom Sessions</span>
+                </div>
+                <div class="collage-badge badge-exp">
+                    <i data-lucide="award"></i>
+                    <div>
+                        <strong>10+ Years</strong>
+                        <span>Master Craftsmanship</span>
+                    </div>
+                </div>
+                <div class="collage-grid">
+                    <div class="collage-cell tall-cell">
+                        <img src="./assets/studio-photoshoot-session.jpg" alt="Fine Art Portrait Photography">
+                        <div class="collage-label"><i data-lucide="user"></i> Portrait Artistry</div>
+                    </div>
+                    <div class="collage-cell">
+                        <img src="./assets/pkg-collection-maternity.jpg" alt="Maternity & Motherhood">
+                        <div class="collage-label"><i data-lucide="heart"></i> Maternity Studio</div>
+                    </div>
+                    <div class="collage-cell">
+                        <img src="./assets/sd-family-4.jpg" alt="Family & Newborn">
+                        <div class="collage-label"><i data-lucide="users"></i> Family Legacy</div>
+                    </div>
+                </div>
+                <div class="collage-play-btn" id="heroPlayBtn" title="Studio Experience Showreel">
+                    <div class="play-ring"></div>
+                    <i data-lucide="play"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <i data-lucide="chevrons-down"></i>
+        </div>
+    </section>
+
+    <section class="featured-services" id="featured-services">
+        <div class="container">
+            <div class="section-title">
+                <span>WHAT WE OFFER</span>
+                <h2>Our Featured <span class="highlight">Photography</span> Services</h2>
+                <p>Every service is crafted with precision, artistry, and an editorial passion for human connection.</p>
+            </div>
+
+            <div class="srv-card-grid" id="featured-grid">
+
+                <div class="srv-card srv-card-featured" data-category="portrait">
+                    <div class="srv-card-img-editorial">
+                        <img src="./assets/srv-card-portrait.jpg" alt="Fine Art Portrait Photography" loading="lazy">
+                        <span class="srv-badge-cat"><i data-lucide="user"></i> Fine Art Studio</span>
+                    </div>
+                    <div class="srv-card-body">
+                        <h3>Portrait Photography</h3>
+                        <p>Signature studio portraits, creative personal branding, and editorial model portfolios with sculpted Broncolor lighting, posing guidance, and master skin tone retouching.</p>
+                        <div class="srv-tag-row">
+                            <span class="srv-tag"><i data-lucide="sun"></i> Studio & Natural Light</span>
+                            <span class="srv-tag"><i data-lucide="sparkles"></i> 2-4 Outfits</span>
+                        </div>
+                        <a href="service-details.html?service=portrait" class="card-btn">Explore Details <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="srv-card srv-card-featured" data-category="family">
+                    <div class="srv-card-img-editorial">
+                        <img src="./assets/srv-card-family.jpg" alt="Family Legacy & Newborn Photography" loading="lazy">
+                        <span class="srv-badge-cat"><i data-lucide="users"></i> Generational Legacy</span>
+                    </div>
+                    <div class="srv-card-body">
+                        <h3>Family Photography</h3>
+                        <p>Spontaneous laughter, genuine embraces, and milestone celebrations preserved forever in timeless, heartwarming frames in our relaxed private studio sanctuary.</p>
+                        <div class="srv-tag-row">
+                            <span class="srv-tag"><i data-lucide="users"></i> Multi-Generation</span>
+                            <span class="srv-tag"><i data-lucide="heart"></i> Newborn Friendly</span>
+                        </div>
+                        <a href="service-details.html?service=family" class="card-btn">Explore Details <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="srv-card srv-card-featured" data-category="maternity">
+                    <div class="srv-card-img-editorial">
+                        <img src="./assets/srv-card-maternity.jpg" alt="Maternity & Motherhood Photography" loading="lazy">
+                        <span class="srv-badge-cat"><i data-lucide="heart"></i> Ethereal Motherhood</span>
+                    </div>
+                    <div class="srv-card-body">
+                        <h3>Maternity Photography</h3>
+                        <p>Honoring the quiet beauty and anticipation of new life. Includes luxury wardrobe styling, couture fabrics, soft backlighting, and intimate partner inclusion.</p>
+                        <div class="srv-tag-row">
+                            <span class="srv-tag"><i data-lucide="palette"></i> Wardrobe Styling</span>
+                            <span class="srv-tag"><i data-lucide="sparkles"></i> Fine Art Gowns</span>
+                        </div>
+                        <a href="service-details.html?service=maternity" class="card-btn">Explore Details <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="srv-card" data-category="prewedding">
+                    <div class="srv-card-img-editorial">
+                        <img src="./assets/sd-wedding-3.jpg" alt="Pre-Wedding & Couples Photography" loading="lazy">
+                        <span class="srv-badge-cat"><i data-lucide="map-pin"></i> Destination & Love</span>
+                    </div>
+                    <div class="srv-card-body">
+                        <h3>Pre-Wedding Shoots</h3>
+                        <p>Creative outdoor and destination pre-wedding photography capturing romantic chemistry and cinematic storytelling before your grand celebration.</p>
+                        <div class="srv-tag-row">
+                            <span class="srv-tag"><i data-lucide="map-pin"></i> Outdoor Locations</span>
+                        </div>
+                        <a href="service-details.html?service=wedding" class="card-btn">Explore Details <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="srv-card" data-category="fashion">
+                    <div class="srv-card-img-editorial">
+                        <img src="./assets/sd-portrait-3.jpg" alt="Fashion & Editorial Photography" loading="lazy">
+                        <span class="srv-badge-cat"><i data-lucide="sparkles"></i> Editorial & Lookbook</span>
+                    </div>
+                    <div class="srv-card-body">
+                        <h3>Fashion Photography</h3>
+                        <p>Editorial, modeling portfolios, and brand lookbooks with creative lighting direction, moodboard curation, and magazine-quality color grading.</p>
+                        <div class="srv-tag-row">
+                            <span class="srv-tag"><i data-lucide="camera"></i> Editorial Direction</span>
+                        </div>
+                        <a href="service-details.html?service=portrait" class="card-btn">Explore Details <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="srv-card" data-category="wedding">
+                    <div class="srv-card-img-editorial">
+                        <img src="./assets/sd-wedding-2.jpg" alt="Royal Wedding Celebrations" loading="lazy">
+                        <span class="srv-badge-cat"><i data-lucide="award"></i> Grand Celebrations</span>
+                    </div>
+                    <div class="srv-card-body">
+                        <h3>Wedding Photography</h3>
+                        <p>Full spectrum cinematic wedding coverage with drone aerials, candid emotional moments, and luxury handcrafted heirloom coffee table albums.</p>
+                        <div class="srv-tag-row">
+                            <span class="srv-tag"><i data-lucide="video"></i> Drone & 4K Cinema</span>
+                        </div>
+                        <a href="service-details.html?service=wedding" class="card-btn">Explore Details <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="whats-included-section" id="included">
+        <div class="container">
+            <div class="section-title">
+                <span>EVERY SESSION INCLUDES</span>
+                <h2>The Signature <span class="highlight">Studio Standard</span></h2>
+                <p>Every booking with Pixora Studio is accompanied by our white-glove fine-art service and attention to detail.</p>
+            </div>
+
+            <div class="included-grid">
+                <div class="included-card">
+                    <div class="included-icon"><i data-lucide="palette"></i></div>
+                    <h3>Styling & Wardrobe Consultation</h3>
+                    <p>Personal prep guide, moodboards, color harmony recommendations, and couture gown access for maternity shoots.</p>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-icon"><i data-lucide="sun"></i></div>
+                    <h3>Private Studio Sanctuary</h3>
+                    <p>Exclusive access to our climate-controlled studio, multiple custom backdrops, and natural light suites.</p>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-icon"><i data-lucide="wand-2"></i></div>
+                    <h3>Bespoke Hand-Retouching</h3>
+                    <p>Every selected photograph receives individual fine-art color grading, natural skin toning, and museum retouching.</p>
+                </div>
+
+                <div class="included-card">
+                    <div class="included-icon"><i data-lucide="image"></i></div>
+                    <h3>Archival Print Heirlooms</h3>
+                    <p>Private online proofing gallery with full resolution downloads, printing rights, and handcrafted album delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="srv-faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <span>FAQ</span>
+                <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+                <p>Everything you need to know before booking your photography session.</p>
+            </div>
+
+            <div class="srv-faq-container">
+
+                <div class="faq-item active" id="faq-1">
+                    <div class="faq-question">
+                        <h3>How can I book a session?</h3>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can book a session online through our website's booking form or contact us directly via
+                            phone or email. We'll schedule a free consultation to understand your requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="faq-2">
+                    <div class="faq-question">
+                        <h3>Do you travel outside the city?</h3>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We provide destination photography services across India and internationally. Travel and
+                            accommodation charges apply for outstation shoots, which we discuss transparently before
+                            booking.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="faq-3">
+                    <div class="faq-question">
+                        <h3>How long does editing take?</h3>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our standard editing turnaround is 7Ã¢â‚¬â€œ15 working days. For rush delivery, we offer priority
+                            editing options. We will always keep you updated on the progress of your gallery.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" id="faq-4">
+                    <div class="faq-question">
+                        <h3>Do you provide premium albums?</h3>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Premium handcrafted albums are included in our Premium and Luxury packages. Basic
+                            package clients can add an album as an upgrade. We offer a variety of styles, sizes, and
+                            cover options.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="srv-cta" id="booking">
+        <div class="container">
+            <div class="srv-cta-card">
+                <div class="cta-glow-orb cta-orb-1"></div>
+                <div class="cta-glow-orb cta-orb-2"></div>
+                <div class="cta-inner">
+                    <div class="cta-badge"><i data-lucide="camera"></i> Start Your Journey</div>
+                    <h2>Ready To Book Your Dream <span class="highlight">Photoshoot?</span></h2>
+                    <p>Let's create memories that will last a lifetime. Our team is ready to bring your vision to life.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="Package.html" class="btn cta-primary-btn" id="book-now-cta">Book Now <i
+                                data-lucide="arrow-right"></i></a>
+                        <a href="contact.html" class="btn-outline" id="contact-cta">Contact Us <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-box footer-brand-box">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="./assets/logo photo.jpg" alt="Pixora Studio Logo">
+                        <div class="logo-text">
+                            <h2>Pixora Studio</h2>
+                            <p>Photography Studio</p>
+                        </div>
+                    </a>
+                </div>
+                <p class="footer-bio">
+                    Elevating fine-art photography with museum-grade craftsmanship,and timeless generational legacy
+                    sessions.
+                </p>
+                <div class="footer-social-circles">
+                    <a href="#" class="footer-social-circle" aria-label="Instagram">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" class="footer-social-circle" aria-label="Facebook">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" class="footer-social-circle" aria-label="YouTube">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="#" class="footer-social-circle" aria-label="Twitter">
+                        <svg class="footer-social-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h4 class="footer-col-title">COMPANY</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Home 1</a></li>
+                    <li><a href="home2.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Home 2</a></li>
+                    <li><a href="about.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> About Us</a></li>
+                    <li><a href="about.html#story"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Studio Story</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h4 class="footer-col-title">SERVICES</h4>
+                <ul class="footer-links">
+                    <li><a href="service-details.html?service=portrait"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Portrait Photography</a></li>
+                    <li><a href="service-details.html?service=family"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Family & Newborn</a></li>
+                    <li><a href="service-details.html?service=maternity"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Maternity & Motherhood</a></li>
+                    <li><a href="service-details.html?service=wedding"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Wedding & Pre-Wedding</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box">
+                <h4 class="footer-col-title">ADDITIONAL LINKS</h4>
+                <ul class="footer-links">
+                    <li><a href="Package.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Packages & Pricing</a></li>
+                    <li><a href="contact.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Contact Us</a></li>
+                    <li><a href="404.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> 404 Error Page</a></li>
+                    <li><a href="coming-soon.html"><svg class="footer-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg> Coming Soon</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-box footer-contact-col">
+                <h4 class="footer-col-title">CONTACT & SUPPORT</h4>
+                <div class="footer-contact-items">
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Timing:</span>
+                            <span class="ci-val">Daily: 09:00 AM Ã¢â‚¬â€œ 08:30 PM</span>
+                        </div>
+                    </div>
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Location:</span>
+                            <span class="ci-val">Jubilee Hills, Hyderabad</span>
+                        </div>
+                    </div>
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Mail:</span>
+                            <a href="mailto:info@pixorastudio.com" class="ci-val">info@pixorastudio.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-ci">
+                        <svg class="ci-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <div class="ci-text">
+                            <span class="ci-label">Support:</span>
+                            <a href="tel:+919999999999" class="ci-val">+91 99999 99999</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container copyright-container">
+                <p>Ã‚Â© 2026 Pixora Studio. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="legal-sep">Ã¢â‚¬Â¢</span>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="index.js"></script>
+    <script src="services.js"></script>
+
+</body>
+
+</html>

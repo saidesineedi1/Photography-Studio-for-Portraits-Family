@@ -1,0 +1,1081 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal & Private Archives | Pixora Studio</title>
+    <link rel="icon" type="image/jpeg" href="./assets/logo photo.jpg">
+    <link rel="apple-touch-icon" href="./assets/logo photo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="client-dashboard.css">
+</head>
+<body>
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeMobileSidebar()"></div>
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar" id="dashboardSidebar">
+            <button class="sidebar-close-btn" onclick="closeMobileSidebar()" aria-label="Close navigation menu">
+                <i data-lucide="x"></i>
+            </button>
+            <a href="index.html" class="sidebar-brand">
+                <img src="./assets/logo photo.jpg" alt="Pixora Studio Logo" class="sidebar-brand-logo">
+                <div class="sidebar-brand-text">
+                    <h2>Pixora Studio</h2>
+                    <span>Photography Studio</span>
+                </div>
+            </a>
+            <div class="sidebar-client-pill">
+                <i data-lucide="shield-check"></i>
+                <span>Private Client Portal</span>
+            </div>
+            <nav class="sidebar-nav">
+                <span class="sidebar-category-label">Menu</span>
+                <button class="nav-tab-btn active" data-tab="tab-overview" onclick="switchTab('tab-overview')">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Overview</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-bookings" onclick="switchTab('tab-bookings')">
+                    <i data-lucide="calendar-check"></i>
+                    <span>My Bookings</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-galleries" onclick="switchTab('tab-galleries')">
+                    <i data-lucide="images"></i>
+                    <span>My Galleries</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-favorites" onclick="switchTab('tab-favorites')">
+                    <i data-lucide="heart"></i>
+                    <span>Favorites</span>
+                    <span class="nav-badge-count favorites-badge-count">0</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-orders" onclick="switchTab('tab-orders')">
+                    <i data-lucide="shopping-bag"></i>
+                    <span>Print Orders</span>
+                    <span class="nav-badge-count" id="cartItemsCountBadge">0</span>
+                </button>
+                <span class="sidebar-category-label">Account & Help</span>
+                <button class="nav-tab-btn" data-tab="tab-profile" onclick="switchTab('tab-profile')">
+                    <i data-lucide="user"></i>
+                    <span>My Profile</span>
+                </button>
+                <button class="nav-tab-btn" data-tab="tab-support" onclick="switchTab('tab-support')">
+                    <i data-lucide="help-circle"></i>
+                    <span>Help & Support</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="sidebar-link-btn">
+                    <i data-lucide="arrow-left"></i>
+                    <span>Back to Website</span>
+                </a>
+                <a href="login.html" class="sidebar-link-btn" style="color: #EF4444;">
+                    <i data-lucide="log-out"></i>
+                    <span>Sign Out</span>
+                </a>
+            </div>
+        </aside>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <button class="mobile-menu-trigger" onclick="openMobileSidebar()" aria-label="Open Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="header-welcome-text">
+                        <h1 id="headerViewTitle">Overview & Summary</h1>
+                        <p>Pixora Private Fine-Art Client Atelier</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="header-icon-btn" id="themeToggleBtn" onclick="toggleTheme()"
+                        title="Toggle Dark/Light Mode">
+                        <i data-lucide="moon" id="themeIcon"></i>
+                    </button>
+                    <div class="header-notif-menu" style="position: relative;">
+                        <button class="header-icon-btn" onclick="toggleDropdown('notificationsPanel')"
+                            title="Notifications">
+                            <i data-lucide="bell"></i>
+                            <span class="icon-unread-dot"></span>
+                        </button>
+                        <div class="notifications-panel" id="notificationsPanel">
+                            <div class="notif-header">
+                                <h4>Studio Notifications</h4>
+                                <span style="font-size: 11px; color: var(--text-gold); cursor: pointer;"
+                                    onclick="showToast('All notifications marked as read')">Mark read</span>
+                            </div>
+                            <div class="notif-list">
+                                <div class="notif-item">
+                                    <div class="notif-icon"><i data-lucide="camera"></i></div>
+                                    <div class="notif-content">
+                                        <p><strong>Autumn Family Gallery Ready:</strong> 54 new proof photographs have
+                                            been published to your archive.</p>
+                                        <time>2 hours ago</time>
+                                    </div>
+                                </div>
+                                <div class="notif-item">
+                                    <div class="notif-icon"><i data-lucide="package"></i></div>
+                                    <div class="notif-content">
+                                        <p><strong>Print Order Dispatched:</strong> Your 16x24 Canvas Wrap is in transit
+                                            with courier.</p>
+                                        <time>Yesterday</time>
+                                    </div>
+                                </div>
+                                <div class="notif-item">
+                                    <div class="notif-icon"><i data-lucide="calendar"></i></div>
+                                    <div class="notif-content">
+                                        <p><strong>Upcoming Session Reminder:</strong> Family Legacy Session scheduled
+                                            for Dec 5 at Jubilee Hills.</p>
+                                        <time>3 days ago</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline-gold" style="padding: 7px 16px; font-size: 12.5px;"
+                        onclick="switchTab('tab-favorites')">
+                        <i data-lucide="heart" style="width: 14px; height: 14px; fill: var(--gold);"></i>
+                        <span>Favorites (<span id="headerFavCount">0</span>)</span>
+                    </button>
+                    <div class="header-user-menu">
+                        <button class="header-user-btn" onclick="toggleDropdown('userDropdownPanel')" aria-label="Toggle client profile menu">
+                            <img src="./assets/client-sophia-williams.jpg" alt="Eleanor Vance" class="header-user-avatar">
+                            <div class="header-user-info">
+                                <span class="header-user-name">Eleanor Vance</span>
+                                <span class="header-user-role">VIP Heirloom Client</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="header-user-chevron"></i>
+                        </button>
+                        <div class="user-dropdown-panel" id="userDropdownPanel">
+                            <a href="#" onclick="switchTab('tab-profile')"><i data-lucide="user"></i> My Profile</a>
+                            <a href="#" onclick="switchTab('tab-bookings')"><i data-lucide="calendar"></i> My
+                                Bookings</a>
+                            <a href="#" onclick="switchTab('tab-orders')"><i data-lucide="package"></i> Order
+                                History</a>
+                            <div class="user-dropdown-divider"></div>
+                            <a href="index.html"><i data-lucide="home"></i> Studio Homepage</a>
+                            <a href="login.html" style="color: #EF4444;"><i data-lucide="log-out"></i> Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <section class="dashboard-view active" id="tab-overview">
+                    <div class="view-header">
+                        <div class="view-header-text">
+                            <h2>Welcome Back, Eleanor Vance</h2>
+                            <p>Your memories, sessions, and beautiful moments are all in one place.</p>
+                        </div>
+                        <div class="view-header-actions">
+                            <button class="btn-gold" onclick="openBookingModal()">
+                                <i data-lucide="plus-circle"></i> Book New Session
+                            </button>
+                        </div>
+                    </div>
+                    <div class="overview-kpi-grid">
+                        <div class="kpi-card" onclick="switchTab('tab-bookings')" style="cursor: pointer;">
+                            <div class="kpi-icon-wrap"><i data-lucide="calendar-clock"></i></div>
+                            <div class="kpi-content">
+                                <h3>1</h3>
+                                <p>Upcoming Session</p>
+                            </div>
+                        </div>
+                        <div class="kpi-card" onclick="switchTab('tab-bookings')" style="cursor: pointer;">
+                            <div class="kpi-icon-wrap"><i data-lucide="award"></i></div>
+                            <div class="kpi-content">
+                                <h3>3</h3>
+                                <p>Completed Sessions</p>
+                            </div>
+                        </div>
+                        <div class="kpi-card" onclick="switchTab('tab-galleries')" style="cursor: pointer;">
+                            <div class="kpi-icon-wrap"><i data-lucide="image"></i></div>
+                            <div class="kpi-content">
+                                <h3>142</h3>
+                                <p>Photos Available</p>
+                            </div>
+                        </div>
+                        <div class="kpi-card" onclick="switchTab('tab-favorites')" style="cursor: pointer;">
+                            <div class="kpi-icon-wrap"><i data-lucide="heart"></i></div>
+                            <div class="kpi-content">
+                                <h3 id="kpiFavoritesCount">0</h3>
+                                <p>Favorite Photos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview-grid-layout">
+                        <div class="overview-left-col">
+                            <div class="dash-card">
+                                <div class="dash-card-header">
+                                    <h3 class="dash-card-title">
+                                        <i data-lucide="calendar"></i> Next Upcoming Session
+                                    </h3>
+                                    <span class="status-badge confirmed"><i data-lucide="check-circle"></i>
+                                        Confirmed</span>
+                                </div>
+                                <div class="session-featured-box">
+                                    <div class="session-thumb-wrap">
+                                        <img src="./assets/dash-gallery-cover-family.jpg" alt="Upcoming Family Milestone Session"
+                                            class="session-thumb">
+                                    </div>
+                                    <div class="session-details-body">
+                                        <div class="session-category-tag">Family & Generational Legacy</div>
+                                        <h4 class="session-title-name">Annual Family Milestone Session</h4>
+                                        <div class="session-meta-row">
+                                            <span><i data-lucide="calendar"></i> Sat, Dec 5, 2026</span>
+                                            <span><i data-lucide="clock"></i> 10:00 AM â€“ 12:30 PM</span>
+                                            <span><i data-lucide="map-pin"></i> Jubilee Hills Atelier</span>
+                                        </div>
+                                        <div style="display: flex; gap: 10px;">
+                                            <button class="btn-gold" style="padding: 7px 16px; font-size: 12px;"
+                                                onclick="showToast('Session itinerary & styling guide opened!')">
+                                                View Guide & Notes
+                                            </button>
+                                            <button class="btn-outline-gold" style="padding: 7px 16px; font-size: 12px;"
+                                                onclick="showToast('Rescheduling request submitted to your studio concierge.')">
+                                                Reschedule
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="dash-card-header">
+                                    <h3 class="dash-card-title">
+                                        <i data-lucide="activity"></i> Studio Activity Timeline
+                                    </h3>
+                                </div>
+                                <div class="activity-feed-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon"><i data-lucide="sparkles"></i></div>
+                                        <div class="activity-text">
+                                            <strong>New Private Gallery Published</strong>
+                                            <p>54 proof photographs from your Autumn Family Session are ready for
+                                                selection.</p>
+                                            <time>2 hours ago</time>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon"><i data-lucide="heart"></i></div>
+                                        <div class="activity-text">
+                                            <strong>Favorites Updated</strong>
+                                            <p>Curated selections updated for the upcoming fine-art leather album
+                                                design.</p>
+                                            <time>Yesterday at 04:15 PM</time>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon"><i data-lucide="truck"></i></div>
+                                        <div class="activity-text">
+                                            <strong>Fine Art Canvas Wrap Dispatched</strong>
+                                            <p>Order #PIX-PR-5521 is on its way via White-Glove Courier Delivery.</p>
+                                            <time>3 days ago</time>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon"><i data-lucide="check"></i></div>
+                                        <div class="activity-text">
+                                            <strong>Session Deposit Confirmed</strong>
+                                            <p>Booking reference #PIX-BK-9024 marked confirmed on studio calendar.</p>
+                                            <time>Nov 8, 2026</time>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overview-right-col">
+                            <div class="dash-card">
+                                <div class="dash-card-header">
+                                    <h3 class="dash-card-title">
+                                        <i data-lucide="images"></i> Recent Private Gallery
+                                    </h3>
+                                    <span class="status-badge completed">54 Proofs Ready</span>
+                                </div>
+                                <div class="gallery-showcase-card"
+                                    style="background-image: url('./assets/home-gallery-family-candid.jpg');">
+                                    <div class="gallery-showcase-overlay"></div>
+                                    <div class="gallery-showcase-content">
+                                        <span
+                                            style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); font-weight: 700;">Family
+                                            Milestone Archive</span>
+                                        <h4>Autumn Golden Hour Session</h4>
+                                        <p style="font-size: 12.5px; color: #E2E8F0; margin-bottom: 14px;">Master
+                                            retouched color-graded proofs ready for print approval.</p>
+                                        <button class="btn-gold" onclick="switchTab('tab-galleries')">
+                                            <i data-lucide="eye"></i> View Gallery & Proofs
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dash-card"
+                                style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(14, 26, 45, 0.95) 100%);">
+                                <h3
+                                    style="font-family: 'Cinzel', serif; font-size: 19px; color: var(--text-primary); margin-bottom: 8px;">
+                                    Preserve Your Legacy in Print
+                                </h3>
+                                <p
+                                    style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                                    Turn your favorite digital proofs into museum-grade cotton rag prints, Italian
+                                    leather albums, and custom floating oak frames.
+                                </p>
+                                <button class="btn-gold" onclick="switchTab('tab-orders')">
+                                    <i data-lucide="shopping-bag"></i> Order Keepsake Prints
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="dashboard-view" id="tab-bookings">
+                    <div class="view-header">
+                        <div class="view-header-text">
+                            <h2>My Photography Sessions</h2>
+                            <p>Manage your upcoming dates, view studio details, and reserve future legacy portrait
+                                sessions.</p>
+                        </div>
+                        <div class="view-header-actions">
+                            <button class="btn-gold" onclick="openBookingModal()">
+                                <i data-lucide="plus-circle"></i> Reserve New Session
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bookings-filter-bar">
+                        <button class="filter-pill-btn active">All Sessions (4)</button>
+                        <button class="filter-pill-btn">Upcoming (1)</button>
+                        <button class="filter-pill-btn">Completed (3)</button>
+                    </div>
+                    <div class="bookings-list" id="activeBookingsList">
+                        <div class="booking-item-card">
+                            <div class="booking-col-main">
+                                <span class="booking-ref-badge">#PIX-BK-9024 â€¢ Family Photography</span>
+                                <h3>The Signature Heirloom Collection</h3>
+                                <span class="status-badge confirmed"><i data-lucide="check-circle"></i> Confirmed &
+                                    Prepared</span>
+                            </div>
+                            <div class="booking-col-meta">
+                                <div><i data-lucide="calendar"></i> <span>Saturday, Dec 5, 2026</span></div>
+                                <div><i data-lucide="clock"></i> <span>10:00 AM â€“ 12:30 PM (2.5 Hours)</span></div>
+                                <div><i data-lucide="map-pin"></i> <span>Pixora Studio 1 & Garden Set</span></div>
+                                <div><i data-lucide="credit-card"></i> <span>Deposit Paid ($500) â€¢ Balance on Session
+                                        Day</span></div>
+                            </div>
+                            <div class="booking-col-actions">
+                                <button class="btn-gold" style="padding: 8px 18px; font-size: 12.5px;"
+                                    onclick="showToast('Pre-session styling guide sent to your inbox!')">
+                                    <i data-lucide="file-text"></i> Session Guide
+                                </button>
+                                <button class="btn-outline-gold" style="padding: 8px 18px; font-size: 12.5px;"
+                                    onclick="showToast('Concierge notified for rescheduling.')">
+                                    Reschedule
+                                </button>
+                            </div>
+                        </div>
+                        <div class="booking-item-card">
+                            <div class="booking-col-main">
+                                <span class="booking-ref-badge">#PIX-BK-8710 â€¢ Maternity Photography</span>
+                                <h3>The Ethereal Motherhood Suite</h3>
+                                <span class="status-badge completed"><i data-lucide="check"></i> Completed &
+                                    Archived</span>
+                            </div>
+                            <div class="booking-col-meta">
+                                <div><i data-lucide="calendar"></i> <span>Sunday, Aug 16, 2026</span></div>
+                                <div><i data-lucide="clock"></i> <span>02:00 PM â€“ 04:00 PM</span></div>
+                                <div><i data-lucide="map-pin"></i> <span>Pixora Studio â€” Natural Light Loft</span></div>
+                                <div><i data-lucide="credit-card"></i> <span>Fully Paid ($1,150)</span></div>
+                            </div>
+                            <div class="booking-col-actions">
+                                <button class="btn-gold" style="padding: 8px 18px; font-size: 12.5px;"
+                                    onclick="switchTab('tab-galleries')">
+                                    <i data-lucide="images"></i> View Photos (46)
+                                </button>
+                            </div>
+                        </div>
+                        <div class="booking-item-card">
+                            <div class="booking-col-main">
+                                <span class="booking-ref-badge">#PIX-BK-7450 â€¢ Fine-Art Portraiture</span>
+                                <h3>The Editorial Classic Portrait</h3>
+                                <span class="status-badge completed"><i data-lucide="check"></i> Completed &
+                                    Archived</span>
+                            </div>
+                            <div class="booking-col-meta">
+                                <div><i data-lucide="calendar"></i> <span>Friday, Mar 12, 2026</span></div>
+                                <div><i data-lucide="clock"></i> <span>11:00 AM â€“ 01:00 PM</span></div>
+                                <div><i data-lucide="map-pin"></i> <span>Pixora Studio â€” Noir Velvet Stage</span></div>
+                                <div><i data-lucide="credit-card"></i> <span>Fully Paid ($850)</span></div>
+                            </div>
+                            <div class="booking-col-actions">
+                                <button class="btn-gold" style="padding: 8px 18px; font-size: 12.5px;"
+                                    onclick="switchTab('tab-galleries')">
+                                    <i data-lucide="images"></i> View Photos (42)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="dashboard-view" id="tab-galleries">
+                    <div class="view-header">
+                        <div class="view-header-text">
+                            <h2>Your Beautiful Memories</h2>
+                            <p>Private high-resolution proof gallery. Select your favorites, download images, or order
+                                fine-art prints.</p>
+                        </div>
+                        <div class="view-header-actions">
+                            <button class="btn-outline-gold"
+                                onclick="showToast('Downloading complete proof archive (ZIP)...', 'download')">
+                                <i data-lucide="download"></i> Download All Proofs
+                            </button>
+                            <button class="btn-gold" onclick="switchTab('tab-orders')">
+                                <i data-lucide="shopping-bag"></i> Order Prints from Selection
+                            </button>
+                        </div>
+                    </div>
+                    <div class="gallery-collections-grid">
+                        <div class="collection-card active" onclick="renderGalleryGrid('autumn-family')">
+                            <div class="collection-img-wrap">
+                                <img src="./assets/dash-gallery-cover-family.jpg" alt="Autumn Family Milestone Gallery" class="collection-img" loading="lazy">
+                                <span class="collection-count-badge">54 Proofs</span>
+                            </div>
+                            <div class="collection-body">
+                                <h4>Autumn Family Milestone</h4>
+                                <div class="collection-date">Shot on Oct 24, 2026 â€¢ Jubilee Hills</div>
+                                <span class="status-badge completed">Ready for Review</span>
+                            </div>
+                        </div>
+                        <div class="collection-card" onclick="renderGalleryGrid('maternity-legacy')">
+                            <div class="collection-img-wrap">
+                                <img src="./assets/maternity-beach-sunset.jpg" alt="Ethereal Maternity Suite Gallery" class="collection-img" loading="lazy">
+                                <span class="collection-count-badge">46 Proofs</span>
+                            </div>
+                            <div class="collection-body">
+                                <h4>Ethereal Maternity Suite</h4>
+                                <div class="collection-date">Shot on Aug 16, 2026 â€¢ Natural Light Loft</div>
+                                <span class="status-badge completed">Approved Archive</span>
+                            </div>
+                        </div>
+                        <div class="collection-card" onclick="renderGalleryGrid('studio-portrait')">
+                            <div class="collection-img-wrap">
+                                <img src="./assets/sd-portrait-overview.jpg" alt="Editorial Studio Portraiture Gallery" class="collection-img" loading="lazy">
+                                <span class="collection-count-badge">42 Proofs</span>
+                            </div>
+                            <div class="collection-body">
+                                <h4>Editorial Studio Portraiture</h4>
+                                <div class="collection-date">Shot on Mar 12, 2026 â€¢ Noir Velvet Stage</div>
+                                <span class="status-badge completed">Archived Prints</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proof-filter-bar">
+                        <div class="proof-stats">
+                            Showing <span id="proofTotalCount">12</span> photographs â€¢ <span id="proofFavStats">0</span>
+                            marked as favorite
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="filter-pill-btn active" onclick="renderGalleryGrid('all')">All
+                                Proofs</button>
+                            <button class="filter-pill-btn" onclick="renderGalleryGrid('favorites')">
+                                <i data-lucide="heart" style="width: 12px; height: 12px;"></i> Favorites Only
+                            </button>
+                        </div>
+                    </div>
+                    <div class="proof-grid" id="proofPhotoGrid">
+                    </div>
+                </section>
+                <section class="dashboard-view" id="tab-favorites">
+                    <div class="view-header">
+                        <div class="view-header-text">
+                            <h2>Your Selected Favorites</h2>
+                            <p>Curated photographs selected by you for albums, wall art, and archival keepsakes.</p>
+                        </div>
+                        <div class="view-header-actions">
+                            <button class="btn-outline-gold"
+                                onclick="showToast('Generating zip archive of your favorites...', 'download')">
+                                <i data-lucide="download-cloud"></i> Download Favorites
+                            </button>
+                            <button class="btn-gold" onclick="switchTab('tab-orders')">
+                                <i data-lucide="shopping-bag"></i> Order Prints from Favorites
+                            </button>
+                        </div>
+                    </div>
+                    <div class="empty-favorites-box" id="emptyFavoritesNotice" style="display: none;">
+                        <div class="empty-icon-circle"><i data-lucide="heart"></i></div>
+                        <h3
+                            style="font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px;">
+                            No Favorites Selected Yet
+                        </h3>
+                        <p
+                            style="font-size: 13.5px; color: var(--text-secondary); max-width: 440px; margin: 0 auto 20px;">
+                            Browse your private galleries and tap the heart icon on any photograph to save it to your
+                            print curation list.
+                        </p>
+                        <button class="btn-gold" onclick="switchTab('tab-galleries')">
+                            <i data-lucide="images"></i> Explore My Galleries
+                        </button>
+                    </div>
+                    <div class="proof-grid" id="favoritesPhotoGrid">
+                    </div>
+                </section>
+                <section class="dashboard-view" id="tab-orders">
+                    <div class="view-header">
+                        <div class="view-header-text">
+                            <h2>Turn Your Memories Into Keepsakes</h2>
+                            <p>Handcrafted museum-grade prints, Italian leather albums, and floating gallery frames.</p>
+                        </div>
+                    </div>
+                    <div class="products-catalog-grid">
+                        <div class="product-card">
+                            <div>
+                                <div class="product-thumb-wrap">
+                                    <img src="./assets/pkg-product-prints.jpg" alt="Fine Art Prints" loading="lazy">
+                                </div>
+                                <h4 class="product-title">Museum Fine Art Cotton Rag Print</h4>
+                                <p class="product-desc">Acid-free 310gsm archival paper with velvety matte texture and
+                                    100-year colorfast ratings.</p>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <label class="form-label">Select Print Size:</label>
+                                    <select class="form-control" id="sizeSelect1">
+                                        <option value="8x10 Archival ($45)">8x10 Archival â€” $45</option>
+                                        <option value="11x14 Archival ($75)" selected>11x14 Archival â€” $75</option>
+                                        <option value="16x24 Statement ($140)">16x24 Statement â€” $140</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="product-price-row">
+                                <span class="product-price-tag">From $45</span>
+                                <button class="btn-gold" style="padding: 7px 16px; font-size: 12px;"
+                                    onclick="addProductToCart('Museum Fine Art Cotton Rag Print', 75, 'sizeSelect1')">
+                                    <i data-lucide="plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div>
+                                <div class="product-thumb-wrap">
+                                    <img src="./assets/pkg-product-album.jpg" alt="Heirloom Album" loading="lazy">
+                                </div>
+                                <h4 class="product-title">Handcrafted Italian Leather Album</h4>
+                                <p class="product-desc">Flush-mount panoramic layflat pages bound in Tuscan full-grain
+                                    leather with gold foil debossing.</p>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <label class="form-label">Select Album Size:</label>
+                                    <select class="form-control" id="sizeSelect2">
+                                        <option value="10x10 Album - 30 Pages ($650)" selected>10x10 Album - 30 Pages â€”
+                                            $650</option>
+                                        <option value="12x12 Heirloom - 40 Pages ($950)">12x12 Heirloom - 40 Pages â€”
+                                            $950</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="product-price-row">
+                                <span class="product-price-tag">From $650</span>
+                                <button class="btn-gold" style="padding: 7px 16px; font-size: 12px;"
+                                    onclick="addProductToCart('Handcrafted Italian Leather Album', 650, 'sizeSelect2')">
+                                    <i data-lucide="plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div>
+                                <div class="product-thumb-wrap">
+                                    <img src="./assets/pkg-product-framed.jpg" alt="Floating Frames" loading="lazy">
+                                </div>
+                                <h4 class="product-title">Hand-Finished Floating Frame</h4>
+                                <p class="product-desc">Solid European natural oak with anti-reflective 99% UV museum
+                                    conservation glass.</p>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <label class="form-label">Select Frame Dimension:</label>
+                                    <select class="form-control" id="sizeSelect3">
+                                        <option value="16x20 Floating Oak ($260)" selected>16x20 Floating Oak â€” $260
+                                        </option>
+                                        <option value="20x30 Statement Gallery ($380)">20x30 Statement Gallery â€” $380
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="product-price-row">
+                                <span class="product-price-tag">From $260</span>
+                                <button class="btn-gold" style="padding: 7px 16px; font-size: 12px;"
+                                    onclick="addProductToCart('Hand-Finished Floating Frame', 260, 'sizeSelect3')">
+                                    <i data-lucide="plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3 class="dash-card-title"><i data-lucide="shopping-cart"></i> Your Keepsake Print Cart
+                            </h3>
+                            <span class="status-badge confirmed">White Glove Delivery Included</span>
+                        </div>
+                        <div id="printCartItemsList">
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; justify-content: space-between; padding-top: 18px; margin-top: 14px; border-top: 1px solid var(--border-subtle);">
+                            <div>
+                                <span style="font-size: 13px; color: var(--text-muted);">Total Order Amount:</span>
+                                <div style="font-family: 'Cinzel', serif; font-size: 24px; font-weight: 700; color: var(--text-gold);"
+                                    id="printCartTotalAmount">$0.00</div>
+                            </div>
+                            <button class="btn-gold" onclick="submitPrintOrder()">
+                                <i data-lucide="lock"></i> Place Print Order & Send to Lab
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="dash-card-header">
+                            <h3 class="dash-card-title"><i data-lucide="truck"></i> Print Order History & Tracking</h3>
+                        </div>
+                        <div class="orders-table-wrapper">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order Ref</th>
+                                        <th>Product Items</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ordersTableBody">
+                                    <tr>
+                                        <td><strong>#PIX-PR-5521</strong></td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 10px;">
+                                                <img src="./assets/pkg-product-canvas.jpg" alt="16x24 Archival Canvas Wrap"
+                                                    style="width: 36px; height: 36px; border-radius: 4px; object-fit: cover;">
+                                                <span>16x24 Archival Canvas Wrap</span>
+                                            </div>
+                                        </td>
+                                        <td>3 days ago</td>
+                                        <td><span class="status-badge confirmed"><i data-lucide="truck"></i>
+                                                Shipped</span></td>
+                                        <td>$190.00</td>
+                                        <td>
+                                            <button class="btn-outline-gold" style="padding: 4px 10px; font-size: 11px;"
+                                                onclick="showToast('Tracking: Delivery scheduled for Tomorrow via DHL Express')">
+                                                Track
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>#PIX-PR-4980</strong></td>
+                                        <td>
+                                            <div style="display: flex; align-items: center; gap: 10px;">
+                                                <img src="./assets/pkg-product-album.jpg" alt="10x10 Leather Album"
+                                                    style="width: 36px; height: 36px; border-radius: 4px; object-fit: cover;">
+                                                <span>10x10 Leather Album (30 pgs)</span>
+                                            </div>
+                                        </td>
+                                        <td>Aug 22, 2026</td>
+                                        <td><span class="status-badge completed"><i data-lucide="check-check"></i>
+                                                Delivered</span></td>
+                                        <td>$650.00</td>
+                                        <td>
+                                            <button class="btn-outline-gold" style="padding: 4px 10px; font-size: 11px;"
+                                                onclick="showToast('Receipt #REC-4980 sent to eleanor.vance@example.com')">
+                                                Invoice
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <section class="dashboard-view" id="tab-profile">
+                    <div class="view-header">
+                        <div class="view-header-text">
+                            <h2>Client Profile & Delivery Settings</h2>
+                            <p>Update your personal information, delivery destination for print keepsakes, and
+                                notifications.</p>
+                        </div>
+                    </div>
+                    <div class="profile-card-layout">
+                        <div class="profile-avatar-card">
+                            <img src="./assets/client-sophia-williams.jpg" alt="Eleanor Vance" class="profile-large-avatar">
+                            <h3
+                                style="font-family: 'Cinzel', serif; font-size: 19px; color: var(--text-primary); margin-bottom: 4px;">
+                                Eleanor Vance
+                            </h3>
+                            <span
+                                style="font-size: 12px; color: var(--text-gold); font-weight: 600; margin-bottom: 16px;">VIP
+                                Heirloom Client since 2024</span>
+                            <button class="btn-outline-gold" style="padding: 6px 14px; font-size: 11.5px;"
+                                onclick="showToast('Avatar selection opened')">
+                                <i data-lucide="camera"></i> Change Photo
+                            </button>
+                        </div>
+                        <div class="dash-card">
+                            <form onsubmit="saveProfileChanges(event)">
+                                <h4
+                                    style="font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle);">
+                                    Personal Information
+                                </h4>
+                                <div class="profile-form-grid" style="margin-bottom: 24px;">
+                                    <div class="form-group">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="profileFirstName" value="Eleanor"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="profileLastName" value="Vance"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="profileEmail"
+                                            value="eleanor.vance@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="profilePhone" value="+91 98765 43210"
+                                            required>
+                                    </div>
+                                </div>
+                                <h4
+                                    style="font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle);">
+                                    Print Keepsake Delivery Address
+                                </h4>
+                                <div class="profile-form-grid" style="margin-bottom: 24px;">
+                                    <div class="form-group col-span-2">
+                                        <label class="form-label">Street Address</label>
+                                        <input type="text" class="form-control"
+                                            value="Villa 14, Royal Palm Residences, Road No. 36">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">City</label>
+                                        <input type="text" class="form-control" value="Hyderabad">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">State / Province</label>
+                                        <input type="text" class="form-control" value="Telangana">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Postal / ZIP Code</label>
+                                        <input type="text" class="form-control" value="500033">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Country</label>
+                                        <input type="text" class="form-control" value="India">
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end; gap: 12px;">
+                                    <button type="reset" class="btn-outline-gold">Cancel</button>
+                                    <button type="submit" class="btn-gold"><i data-lucide="check"></i> Save
+                                        Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section class="dashboard-view" id="tab-support">
+                    <div class="view-header">
+                        <div class="view-header-text">
+                            <h2>Studio Support & Concierge</h2>
+                            <p>Our dedicated studio team is available to assist you with proof selection, album
+                                curation, and studio inquiries.</p>
+                        </div>
+                    </div>
+                    <div class="support-grid-layout">
+                        <div>
+                            <h3
+                                style="font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 16px;">
+                                Frequently Asked Questions
+                            </h3>
+                            <div class="faq-accordion-list">
+                                <div class="faq-item active">
+                                    <div class="faq-question" onclick="toggleFaqItem(this)">
+                                        <span>How long after our session will my proof gallery be ready?</span>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        Initial proofs are carefully curated and preliminary-graded within 7 to 10
+                                        business days following your session. You will receive an email and notification
+                                        here as soon as they are ready.
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question" onclick="toggleFaqItem(this)">
+                                        <span>What is the turnaround time for custom albums and frames?</span>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        Our Italian leather albums and custom museum oak frames are individually
+                                        handcrafted. Production takes approximately 3 to 4 weeks from your final photo
+                                        approval, followed by expedited delivery.
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question" onclick="toggleFaqItem(this)">
+                                        <span>Can I download high-resolution digital files?</span>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        Yes. High-resolution printable digital masters are included with all Signature
+                                        and Heirloom packages. You can download individual files or the entire archive
+                                        with one click.
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question" onclick="toggleFaqItem(this)">
+                                        <span>What is your session rescheduling policy?</span>
+                                        <i data-lucide="chevron-down"></i>
+                                    </div>
+                                    <div class="faq-answer">
+                                        We understand family schedules change. You may reschedule up to 72 hours prior
+                                        to your booked slot without any fee. Simply click "Reschedule" in the My
+                                        Bookings section.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dash-card" style="margin-bottom: 20px;">
+                                <h4
+                                    style="font-family: 'Cinzel', serif; font-size: 17px; color: var(--gold); margin-bottom: 14px;">
+                                    Direct Studio Contacts
+                                </h4>
+                                <div
+                                    style="display: flex; flex-direction: column; gap: 12px; font-size: 13px; color: var(--text-secondary);">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i data-lucide="phone"
+                                            style="color: var(--gold); width: 16px; height: 16px;"></i>
+                                        <span><strong>Studio Phone:</strong> +91 99999 99999</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i data-lucide="mail"
+                                            style="color: var(--gold); width: 16px; height: 16px;"></i>
+                                        <span><strong>Email:</strong> info@pixorastudio.com</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i data-lucide="map-pin"
+                                            style="color: var(--gold); width: 16px; height: 16px;"></i>
+                                        <span><strong>Location:</strong> Jubilee Hills, Hyderabad, India</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i data-lucide="clock"
+                                            style="color: var(--gold); width: 16px; height: 16px;"></i>
+                                        <span><strong>Hours:</strong> Daily 09:00 AM â€“ 08:30 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dash-card">
+                                <h4
+                                    style="font-family: 'Cinzel', serif; font-size: 17px; color: var(--gold); margin-bottom: 12px;">
+                                    Send Concierge Inquiry
+                                </h4>
+                                <form onsubmit="submitSupportTicket(event)">
+                                    <div class="form-group" style="margin-bottom: 12px;">
+                                        <label class="form-label">Subject</label>
+                                        <input type="text" class="form-control"
+                                            placeholder="e.g. Question about album sizing" required>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 14px;">
+                                        <label class="form-label">Message</label>
+                                        <textarea class="form-control" id="supportMsgInput" rows="3"
+                                            placeholder="How can our master studio team assist you today?"
+                                            required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn-gold"
+                                        style="width: 100%; justify-content: center;">
+                                        <i data-lucide="send"></i> Dispatch Message
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <div class="lightbox-modal" id="lightboxModal" onclick="if(event.target === this) closeLightbox()">
+        <div class="lightbox-content-box">
+            <button class="lightbox-close-btn" onclick="closeLightbox()" title="Close (Esc)">Ã—</button>
+            <button class="lightbox-nav-btn lightbox-prev" onclick="prevLightboxImage()" title="Previous (Left Arrow)">
+                <i data-lucide="chevron-left"></i>
+            </button>
+            <button class="lightbox-nav-btn lightbox-next" onclick="nextLightboxImage()" title="Next (Right Arrow)">
+                <i data-lucide="chevron-right"></i>
+            </button>
+            <img src="" id="lightboxImg" class="lightbox-img" alt="Lightbox Preview">
+            <div
+                style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 14px;">
+                <div>
+                    <h4 id="lightboxTitle" style="font-family: 'Cinzel', serif; color: #FFFFFF; font-size: 16px;">Photo
+                        Title</h4>
+                    <span id="lightboxCounter" style="font-size: 12px; color: var(--gold);">Photo 1 of 12</span>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-gold" id="lightboxFavBtn"><i data-lucide="heart"></i> Save Favorite</button>
+                    <button class="btn-outline-gold"
+                        onclick="showToast('Downloading single master JPEG...', 'download')">
+                        <i data-lucide="download"></i> Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="bookingModal" onclick="if(event.target === this) closeBookingModal()">
+        <div class="modal-container">
+            <div
+                style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border-gold);">
+                <h3 style="font-family: 'Cinzel', serif; font-size: 20px; color: var(--text-primary);">
+                    Reserve a Fine-Art Session
+                </h3>
+                <button onclick="closeBookingModal()"
+                    style="background: transparent; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer;">Ã—</button>
+            </div>
+            <div class="booking-step-panel" id="bookingStep1">
+                <h4 style="font-size: 15px; color: var(--gold); margin-bottom: 12px;">Step 1: Select Photography
+                    Experience</h4>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+                    <label
+                        style="display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--bg-card-inner); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); cursor: pointer;">
+                        <input type="radio" name="bookingType" value="Family Photography" checked>
+                        <div>
+                            <strong>Soulful Family & Generational Legacy</strong>
+                            <p style="font-size: 11.5px; color: var(--text-muted);">Intimate generational gatherings,
+                                timeless heirloom framing.</p>
+                        </div>
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--bg-card-inner); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); cursor: pointer;">
+                        <input type="radio" name="bookingType" value="Maternity Photography">
+                        <div>
+                            <strong>Ethereal Maternity & Motherhood</strong>
+                            <p style="font-size: 11.5px; color: var(--text-muted);">Couture silk drapery, sculpted
+                                studio lighting, glowing milestone.</p>
+                        </div>
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--bg-card-inner); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); cursor: pointer;">
+                        <input type="radio" name="bookingType" value="Portrait Photography">
+                        <div>
+                            <strong>Fine-Art Solo & Executive Portraiture</strong>
+                            <p style="font-size: 11.5px; color: var(--text-muted);">Editorial chiaroscuro styling and
+                                museum exhibition prints.</p>
+                        </div>
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <button class="btn-gold" onclick="nextBookingStep()">Next: Choose Package â†’</button>
+                </div>
+            </div>
+            <div class="booking-step-panel" id="bookingStep2" style="display: none;">
+                <h4 style="font-size: 15px; color: var(--gold); margin-bottom: 12px;">Step 2: Select Package Tier</h4>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+                    <label
+                        style="display: flex; align-items: center; justify-content: space-between; padding: 14px; background: var(--bg-card-inner); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="radio" name="bookingPackage" value="The Signature Heirloom Collection ($1,450)"
+                                checked>
+                            <div>
+                                <strong>The Signature Heirloom Collection</strong>
+                                <p style="font-size: 11.5px; color: var(--text-muted);">2.5 Hours â€¢ 40 Retouched Masters
+                                    â€¢ 11x14 Archival Print</p>
+                            </div>
+                        </div>
+                        <span style="font-weight: 700; color: var(--gold);">$1,450</span>
+                    </label>
+                    <label
+                        style="display: flex; align-items: center; justify-content: space-between; padding: 14px; background: var(--bg-card-inner); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); cursor: pointer;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="radio" name="bookingPackage" value="The Haute Couture Legacy ($2,200)">
+                            <div>
+                                <strong>The Haute Couture Legacy Suite</strong>
+                                <p style="font-size: 11.5px; color: var(--text-muted);">4 Hours â€¢ All Masters â€¢
+                                    Handcrafted Leather Album Included</p>
+                            </div>
+                        </div>
+                        <span style="font-weight: 700; color: var(--gold);">$2,200</span>
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn-outline-gold" onclick="prevBookingStep()">â† Back</button>
+                    <button class="btn-gold" onclick="nextBookingStep()">Next: Select Date & Time â†’</button>
+                </div>
+            </div>
+            <div class="booking-step-panel" id="bookingStep3" style="display: none;">
+                <h4 style="font-size: 15px; color: var(--gold); margin-bottom: 12px;">Step 3: Select Date & Time Slot
+                </h4>
+                <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+                    <div class="form-group">
+                        <label class="form-label">Preferred Session Date</label>
+                        <input type="date" class="form-control" id="bookingDateSelect" value="2026-12-19">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Available Atelier Time Slots</label>
+                        <select class="form-control" id="bookingTimeSelect">
+                            <option value="10:00 AM (Morning Natural Light)">10:00 AM (Morning Natural Light)</option>
+                            <option value="02:00 PM (Mid-Day Couture Studio)">02:00 PM (Mid-Day Couture Studio)</option>
+                            <option value="04:30 PM (Golden Hour Outdoor Garden)">04:30 PM (Golden Hour Outdoor Garden)
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn-outline-gold" onclick="prevBookingStep()">â† Back</button>
+                    <button class="btn-gold" onclick="nextBookingStep()">Next: Client Info â†’</button>
+                </div>
+            </div>
+            <div class="booking-step-panel" id="bookingStep4" style="display: none;">
+                <h4 style="font-size: 15px; color: var(--gold); margin-bottom: 12px;">Step 4: Client Details & Vision
+                </h4>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="bookingClientName" value="Eleanor Vance">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Contact Phone</label>
+                        <input type="tel" class="form-control" id="bookingClientPhone" value="+91 98765 43210">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Creative Vision or Special Requests</label>
+                        <textarea class="form-control" id="bookingClientNotes" rows="2"
+                            placeholder="e.g. We wish to include grandparents in the final 30 minutes."></textarea>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn-outline-gold" onclick="prevBookingStep()">â† Back</button>
+                    <button class="btn-gold" onclick="nextBookingStep()">Next: Review & Confirm â†’</button>
+                </div>
+            </div>
+            <div class="booking-step-panel" id="bookingStep5" style="display: none;">
+                <h4 style="font-size: 15px; color: var(--gold); margin-bottom: 12px;">Step 5: Review Booking Details
+                </h4>
+                <div id="bookingReviewSummary" style="margin-bottom: 24px;">
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn-outline-gold" onclick="prevBookingStep()">â† Back</button>
+                    <button class="btn-gold" onclick="confirmNewBooking()"><i data-lucide="check-circle"></i> Confirm
+                        Session Reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="client-dashboard.js"></script>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (e) { }
+            updateThemeUI(isLight);
+        }
+        function updateThemeUI(isLight) {
+            const icon = document.getElementById('themeIcon');
+            if (icon) icon.setAttribute('data-lucide', isLight ? 'sun' : 'moon');
+            if (window.lucide) window.lucide.createIcons();
+        }
+        (function () {
+            try {
+                if (localStorage.getItem('theme') === 'light') {
+                    document.body.classList.add('light-mode');
+                    updateThemeUI(true);
+                }
+            } catch (e) { }
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Pixora Studio</title>
+    <link rel="icon" type="image/jpeg" href="./assets/logo photo.jpg">
+    <link rel="apple-touch-icon" href="./assets/logo photo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="404.css">
+</head>
+
+<body>
+
+    <button id="themeBtn" class="theme-toggle-corner" aria-label="Toggle Theme" onclick="toggleTheme()">
+        <i data-lucide="moon"></i>
+    </button>
+
+    <main class="error-page-wrapper">
+        <div class="error-content-container">
+
+            <div class="error-visual-composition">
+                <div class="error-digits-row">
+                    <span class="error-digit">4</span>
+                    <div class="error-center-token" title="Aperture Shutter">
+                        <i data-lucide="aperture"></i>
+                    </div>
+                    <span class="error-digit">4</span>
+                </div>
+
+                <div class="error-floor-shadow"></div>
+            </div>
+
+            <div class="error-card">
+                <div class="error-badge-pill">
+                    <i data-lucide="compass"></i>
+                    <span>PAGE NOT FOUND</span>
+                </div>
+
+                <h1 class="error-title">This Frame Is Out of Focus</h1>
+
+                <p class="error-description">
+                    The page you are looking for may have been relocated, archived, or does not exist. Let us guide you back to our timeless fine-art photography and portrait sessions.
+                </p>
+
+                <div class="error-buttons-row">
+                    <a href="index.html" class="btn-error-primary">
+                        <i data-lucide="home"></i> Back to Home
+                    </a>
+                    <a href="services.html" class="btn-error-secondary">
+                        <i data-lucide="sparkles"></i> Explore Services
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+            const isLight = document.body.classList.contains('light-mode');
+            if (typeof updateThemeUI === 'function') {
+                updateThemeUI(isLight);
+            }
+        });
+    </script>
+</body>
+
+</html>
